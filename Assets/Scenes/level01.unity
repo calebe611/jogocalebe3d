@@ -374,11 +374,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523427475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.90000004, y: -1.33, z: 35.4}
+  m_LocalPosition: {x: 0.8, y: 0, z: 35.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 603031256}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534669902
 GameObject:
@@ -514,7 +514,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 523427476}
   m_Father: {fileID: 1699101901}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -575,8 +576,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   badSpaw:
-  - {fileID: 603031256}
-  badPrefabs: {fileID: 0}
+  - {fileID: 523427476}
+  badPrefabs: {fileID: 5843632445611671103, guid: 96c93791d75d80840b4c08af780f7bbc,
+    type: 3}
   badWaves: 3
   waitTimeFirstWave: 2
   waitTimeBetweenWaves: 4
@@ -694,6 +696,7 @@ GameObject:
   - component: {fileID: 1824393207}
   - component: {fileID: 1824393206}
   - component: {fileID: 1824393205}
+  - component: {fileID: 1824393208}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -769,6 +772,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1824393208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824393203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f156551d2d4d67f478e89a8b12ca279b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactRadius: 0.5
 --- !u!1 &2061173919
 GameObject:
   m_ObjectHideFlags: 0

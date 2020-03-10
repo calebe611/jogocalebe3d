@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using NavGame.Core;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class CreepController : MonoBehaviour
+public class CreepController : CombatGameObject
 {
     NavMeshAgent agent;
     GameObject finalTarget;

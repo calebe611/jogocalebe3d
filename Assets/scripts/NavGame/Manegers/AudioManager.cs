@@ -8,13 +8,43 @@ namespace NavGame.Managers
 {
     public class AudioManager : MonoBehaviour
     {
-      public Clip[] clips;
+        public static AudioManager instance;
+        public Clip[] clips;
 
-     [Serializable]
-     public class Clip
-     {
-         public string name;
-         public AudioClip audio;
-     }
+        Dictionary<string, AudioClip> dict = new Dictionary<string, AudioClip>();
+
+        void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        void Start()
+        {
+            foreach (Clip clip in clips)
+            {
+                dict.Add(clip.name, clip.audio);
+            }
+        }
+        public void Play(string clipName, Vector3 position)
+        {
+            if (dict.ContainsKey(clipName))
+            {
+                AudioSource.PlayClipAtPoint(dict[clipName], position);
+            }
+        }
+
+
+        [Serializable]
+        public class Clip
+        {
+            public string name;
+            public AudioClip audio;
+        }
     }
 }

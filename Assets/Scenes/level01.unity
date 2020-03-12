@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523427475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 35.4}
+  m_LocalPosition: {x: 3.6, y: 0, z: 8.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 603031256}
@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 1271405038}
   - component: {fileID: 1271405037}
   - component: {fileID: 1271405036}
+  - component: {fileID: 1271405039}
   m_Layer: 0
   m_Name: nexus
   m_TagString: Finish
@@ -653,6 +654,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1271405039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271405035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2c68847259ca544bd3cf762d7ec7dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactRadius: 1.5
+  currentHealth: 100
+  stats:
+    maxHealth: 100
+    damage: 10
+    armor: 1
+    attackSpeed: 1
 --- !u!1 &1699101900
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07f9eb66c15c3246a403102523bbeb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contactRadius: 0.45
   walkablelayer:
     serializedVersion: 2
     m_Bits: 512

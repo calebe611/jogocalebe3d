@@ -6,16 +6,15 @@ using NavGame.Core;
 using NavGame.Managers;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class CreepController : CombatGameObject
+public class CreepController : AttackGameObject
 {
     NavMeshAgent agent;
     DamageableGameObject finalTarget;
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         agent = GetComponent<NavMeshAgent>();
         GameObject obj = GameObject.FindWithTag("Finish");
-        if(obj != null)
+        if (obj != null)
         {
             finalTarget = obj.GetComponent<DamageableGameObject>();
         }
@@ -25,11 +24,11 @@ public class CreepController : CombatGameObject
     protected override void Update()
     {
         base.Update();
-        if(finalTarget == null)
+        if (finalTarget == null)
         {
             return;
         }
-        if(IsInTouch(finalTarget))
+        if (IsInTouch(finalTarget))
         {
             AttackOnCooldonw(finalTarget);
         }
@@ -37,7 +36,8 @@ public class CreepController : CombatGameObject
 
     void Start()
     {
-        if(finalTarget != null){
+        if (finalTarget != null)
+        {
             agent.SetDestination(finalTarget.transform.position);
         }
     }

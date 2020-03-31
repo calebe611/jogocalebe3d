@@ -9,6 +9,7 @@ namespace NavGame.Core
 
     public class CombatGameObject : DamageableGameObject
     {
+        public OfenseStats ofenseStats;
         float cooldonw = 0f;
 
         public OnAttackHitEvent onAttackHit;
@@ -22,8 +23,8 @@ namespace NavGame.Core
         {
             if( cooldonw <= 0f)
             {
-                cooldonw = 1f / stats.attackSpeed;
-                target.TakeDamage(stats.damage);
+                cooldonw = 1f / ofenseStats.attackSpeed;
+                target.TakeDamage(ofenseStats.damage);
                 if(onAttackHit != null)
                 {
                     onAttackHit(target.transform.position);

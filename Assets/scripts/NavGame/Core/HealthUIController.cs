@@ -28,14 +28,18 @@ namespace NavGame.Core
         }
         void LateUpdate()
         {
-
+            if(healthUI != null)
+            {
+                healthUI.transform.position = healthPosition.position;
+                healthUI.transform.forward =  -cam.forward;
+            }
         }
 
         Canvas FindWorldCanvas()
         {
             foreach (Canvas c in FindObjectsOfType<Canvas>())
             {
-                if(c. renderMode == RenderMode.WorlsSpace)
+                if(c. renderMode == RenderMode.WorldSpace)
                 {
                     return c;
                 }
@@ -48,4 +52,4 @@ namespace NavGame.Core
 
     }
 }
-
+//

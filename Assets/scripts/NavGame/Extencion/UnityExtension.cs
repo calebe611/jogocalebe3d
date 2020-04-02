@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class UnityExtension : MonoBehaviour
+﻿// https://answers.unity.com/questions/50279/check-if-layer-is-in-layermask.html
+namespace UnityEngine
 {
-    // Start is called before the first frame update
-    void Start()
+    public static class UnityExtensions
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static bool Contains(this LayerMask mask, int layer)
+        {
+            return mask == (mask | (1 << layer));
+        }
     }
 }

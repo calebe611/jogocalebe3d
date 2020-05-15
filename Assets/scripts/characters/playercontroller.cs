@@ -12,18 +12,14 @@ public class playercontroller : TouchableGameObject
    Camera cam;
    public LayerMask walkablelayer;
 
-   public GameObject prefab;
+ 
    
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         cam = Camera.main;
 
-       GameObject obj = GameObject.FindWithTag("Finish");
-       DamageableGameObject dgo = obj.GetComponent<DamageableGameObject>();
-       GameObject projectile = Instantiate( prefab, transform.position, Quaternion.identity) as GameObject;
-       ProgectileController controller = projectile.GetComponent<ProgectileController>();
-       controller.Init(dgo, 20);
+      
     }
 
    

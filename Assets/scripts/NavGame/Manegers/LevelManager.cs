@@ -7,22 +7,59 @@ namespace NavGame.Managers
 {
     public abstract class LevelManager : MonoBehaviour
     {
+        public static LevelManager instance;
         public Action[] actions;
-         void Start()
-    {
-        StartCoroutine(SpawnBad());
-    }
 
-         protected abstract IEnumerator SpawnBad();
+        protected int selectedAction = -1;
+        protected virtual void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+        void Start()
+        {
+            StartCoroutine(SpawnBad());
+        }
 
-         [Serializable]
+        public virtual void SelectAction(int ActionIndex)
+        {
+            Debug.Log("Selected: " + actions[ActionIndex].prefab.name);
+            selectedAction = ActionIndex;
+        }
 
-         public class Action
+        public virtual void DoAction(Vector3 point)
+        {
+            Debug.Log("Do; " + actions[selectedAction].prefab.name);
+            Instantiate(actions[selectedAction].prefab, point, Quaternion.identity);
+        
+        }
+         public virtual void CancelAction()
          {
-             public int cost;
-             public GameObject prefab;
-             public float waitTIme =1f;
-             public float coolDown;
+             if(selectedAction != -1)
+             {
+                 selectedAction = -1;
+             }
+         }
+        public bool IsActionSelected()
+        {
+            return selectedAction != -1;
+        }
+        protected abstract IEnumerator SpawnBad();
+
+        [Serializable]
+
+        public class Action
+        {
+            public int cost;
+            public GameObject prefab;
+            public float waitTIme = 1f;
+            public float coolDown;
         }
 
     }

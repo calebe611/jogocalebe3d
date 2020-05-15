@@ -23,7 +23,7 @@ public class playercontroller : TouchableGameObject
        DamageableGameObject dgo = obj.GetComponent<DamageableGameObject>();
        GameObject projectile = Instantiate( prefab, transform.position, Quaternion.identity) as GameObject;
        ProgectileController controller = projectile.GetComponent<ProgectileController>();
-       controller.Init(dgo);
+       controller.Init(dgo, 20);
     }
 
    

@@ -1822,7 +1822,7 @@ MonoBehaviour:
     coolDown: 0
   - cost: 2
     prefab: {fileID: 214818633}
-    waitTIme: 5
+    waitTIme: 2
     coolDown: 0
   - cost: 10
     prefab: {fileID: 7305700919787875968, guid: 50b3fde0eda214444ab19cdd892d6dbd,
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   - {fileID: 1312309888}
   - {fileID: 93345649}
   - {fileID: 676439233}
-  actionCost:
+  actionCosts:
   - {fileID: 419509165}
   - {fileID: 603153395}
   - {fileID: 1700633493}

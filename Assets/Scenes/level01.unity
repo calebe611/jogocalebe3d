@@ -329,6 +329,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &214818633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7372197809964869457, guid: 7c2866cdfbf14b747b13f7d13239f5ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 7845844324877293380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225998761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1676,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839688312}
   m_CullTransparentMesh: 0
+--- !u!1 &856843546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1380687445230182906, guid: 830c0bdd3b78c064cbe6ef355472e9ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1380687446992353176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &867473129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,15 +1816,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - cost: 2
-    prefab: {fileID: 7372197809964869457, guid: 7c2866cdfbf14b747b13f7d13239f5ae,
-      type: 3}
-    waitTIme: 5
-    coolDown: 0
   - cost: 5
-    prefab: {fileID: 1380687445230182906, guid: 830c0bdd3b78c064cbe6ef355472e9ff,
-      type: 3}
+    prefab: {fileID: 856843546}
     waitTIme: 7
+    coolDown: 0
+  - cost: 2
+    prefab: {fileID: 214818633}
+    waitTIme: 5
     coolDown: 0
   - cost: 10
     prefab: {fileID: 7305700919787875968, guid: 50b3fde0eda214444ab19cdd892d6dbd,
@@ -1823,7 +1833,7 @@ MonoBehaviour:
   - {fileID: 523427476}
   badPrefabs: {fileID: 5843632445611671103, guid: 96c93791d75d80840b4c08af780f7bbc,
     type: 3}
-  badWaves: 3
+  badWaves: 4
   waitTimeFirstWave: 2
   waitTimeBetweenWaves: 4
 --- !u!114 &971680288
@@ -1842,6 +1852,10 @@ MonoBehaviour:
   - {fileID: 1312309888}
   - {fileID: 93345649}
   - {fileID: 676439233}
+  actionCost:
+  - {fileID: 419509165}
+  - {fileID: 603153395}
+  - {fileID: 1700633493}
 --- !u!1 &1152362948
 GameObject:
   m_ObjectHideFlags: 0

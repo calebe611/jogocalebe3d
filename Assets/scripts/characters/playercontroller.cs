@@ -47,7 +47,7 @@ public class playercontroller : TouchableGameObject
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, collectibleLayer))
             {
-              
+
                 pickupTarget = hit.collider.gameObject.GetComponent<CollectibleGameObject>();
                 agent.SetDestination(hit.point);
             }
@@ -57,9 +57,9 @@ public class playercontroller : TouchableGameObject
             }
         }
 
-        else if(Input.GetMouseButtonDown(0) && LevelManager.instance.IsActionSelected())
+        else if (Input.GetMouseButtonDown(0) && LevelManager.instance.IsActionSelected())
         {
-             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, walkablelayer))
@@ -71,15 +71,15 @@ public class playercontroller : TouchableGameObject
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             LevelManager.instance.SelectAction(0);
         }
-        else  if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             LevelManager.instance.SelectAction(1);
         }
-        else  if(Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             LevelManager.instance.SelectAction(2);
         }
@@ -91,6 +91,7 @@ public class playercontroller : TouchableGameObject
         {
             if (IsInTouch(pickupTarget))
             {
+                LevelManager.instance.AddResource(pickupTarget.amount);
                 pickupTarget.Pickup();
             }
         }
@@ -98,7 +99,7 @@ public class playercontroller : TouchableGameObject
 
     void UpdateAction()
     {
-        if(actionPoint != Vector3.zero)
+        if (actionPoint != Vector3.zero)
         {
             if (Vector3.Distance(transform.position, actionPoint) <= range)
             {

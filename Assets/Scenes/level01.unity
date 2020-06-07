@@ -2351,18 +2351,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - cost: 5
+  - cost: 4
     prefab: {fileID: 856843546}
-    waitTIme: 7
+    waitTIme: 10
     coolDown: 0
   - cost: 2
     prefab: {fileID: 214818633}
-    waitTIme: 2
+    waitTIme: 5
     coolDown: 0
-  - cost: 10
+  - cost: 6
     prefab: {fileID: 7305700919787875968, guid: 50b3fde0eda214444ab19cdd892d6dbd,
       type: 3}
-    waitTIme: 20
+    waitTIme: 15
     coolDown: 0
   errorSound: error
   badSpaw:
@@ -2371,7 +2371,7 @@ MonoBehaviour:
     type: 3}
   badWaves: 4
   monsterPerWave: 2
-  waitTimeFirstWave: 2
+  waitTimeFirstWave: 5
   waitTimeBetweenWaves: 4
 --- !u!114 &971680288
 MonoBehaviour:
@@ -2390,6 +2390,7 @@ MonoBehaviour:
   errorTime: 1.5
   coinText: {fileID: 454216235}
   waveCountText: {fileID: 239130891}
+  waveCountdownText: {fileID: 157510313}
   cooldownObjects:
   - {fileID: 1312309888}
   - {fileID: 93345649}

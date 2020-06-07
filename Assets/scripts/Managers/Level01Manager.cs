@@ -8,10 +8,20 @@ public class Level01Manager : LevelManager
     public Transform[] badSpaw;
     public GameObject badPrefabs;
     public int badWaves = 3;
+    public int monsterPerWave = 2;
     public float waitTimeFirstWave = 2f;
     public float waitTimeBetweenWaves = 4f;
 
- 
+    protected override void Start()
+    {
+        base.Start();
+        if (onWaveUpdate != null)
+        {
+            onWaveUpdate(badWaves, 0);
+        }
+    }
+
+
 
     protected override IEnumerator SpawnBad()
     {
@@ -21,7 +31,15 @@ public class Level01Manager : LevelManager
         {
             for (int j = 0; j < badSpaw.Length; j++)
             {
-                Instantiate(badPrefabs, badSpaw[j].position, Quaternion.identity);
+                for (int k = 0; k < monsterPerWave; k++)
+                {
+                    Vector3 offset = new Vector3(Random.Range(-0.1f, 0.1f), 0f, Random.Range(-0.1f, 0.1f));
+                    Instantiate(badPrefabs, badSpaw[j].position + offset, Quaternion.identity);
+                }
+            }
+            if(onWaveUpdate != null)
+            {
+                onWaveUpdate(badWaves,i + 1);
             }
             yield return new WaitForSeconds(waitTimeBetweenWaves);
 

@@ -6,9 +6,12 @@ using NavGame.Managers;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject errorPanel;
+    public Text errorText;
+    public float errorTime = 1.5f;
     public Text coinText;
     public GameObject[] cooldownObjects;
-    public Text[] actionCosts ;
+    public Text[] actionCosts;
 
 
     Image[] cooldownImages;
@@ -18,11 +21,12 @@ public class UIManager : MonoBehaviour
         LevelManager.instance.onActionCancel += OnActionCancel;
         LevelManager.instance.onActionCooldownUpdate += OnActionCooldownUpdate;
         LevelManager.instance.onResourceUpdate += OnResourceUpdate;
+        LevelManager.instance.onReportableError += onReportableError;
     }
 
     void Start()
     {
-        InitializeUI(); 
+        InitializeUI();
     }
 
     void InitializeUI()
@@ -35,6 +39,7 @@ public class UIManager : MonoBehaviour
 
             actionCosts[i].text = "(" + LevelManager.instance.actions[i].cost + ")";
         }
+        errorPanel.SetActive(false);
     }
 
     void OnActionSelect(int actionIndex)
@@ -42,18 +47,29 @@ public class UIManager : MonoBehaviour
         cooldownImages[actionIndex].fillAmount = 1f;
     }
 
-     void OnActionCancel(int actionIndex)
+    void OnActionCancel(int actionIndex)
     {
         cooldownImages[actionIndex].fillAmount = 0f;
     }
 
-    void  OnActionCooldownUpdate(int actionIndex, float coolDown, float waitTime)
+    void OnActionCooldownUpdate(int actionIndex, float coolDown, float waitTime)
     {
         float percent = coolDown / waitTime;
         cooldownImages[actionIndex].fillAmount = percent;
     }
-     void OnResourceUpdate(int currentAmount)
-     {
-         coinText.text = "X " + currentAmount;
-     }
+    void OnResourceUpdate(int currentAmount)
+    {
+        coinText.text = "X " + currentAmount;
+    }
+    void onReportableError(string message)
+    {
+        errorText.text = message;
+        errorPanel.SetActive(true);
+        StartCoroutine(TurnOffError());
+    }
+    IEnumerator TurnOffError()
+    {
+        yield return new WaitForSeconds(errorTime);
+        errorPanel.SetActive(false);
+    }
 }

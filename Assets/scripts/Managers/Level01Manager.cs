@@ -25,16 +25,16 @@ public class Level01Manager : LevelManager
 
     protected override IEnumerator SpawnBad()
     {
-       float wait = waitTimeFirstWave;
-       while (wait > 0)
-       {
-           if(onWaveCountdown != null)
-           {
-               onWaveCountdown(wait);
-           }
-           wait -= Time.deltaTime;
-           yield return null;
-       }
+        float wait = waitTimeFirstWave;
+        while (wait > 0)
+        {
+            if (onWaveCountdown != null)
+            {
+                onWaveCountdown(wait);
+            }
+            wait -= Time.deltaTime;
+            yield return null;
+        }
         for (int i = 0; i < badWaves; i++)
         {
             for (int j = 0; j < badSpaw.Length; j++)
@@ -45,12 +45,27 @@ public class Level01Manager : LevelManager
                     Instantiate(badPrefabs, badSpaw[j].position + offset, Quaternion.identity);
                 }
             }
-            if(onWaveUpdate != null)
+            if (onWaveUpdate != null)
             {
-                onWaveUpdate(badWaves,i + 1);
+                onWaveUpdate(badWaves, i + 1);
             }
-            yield return new WaitForSeconds(waitTimeBetweenWaves);
-
+            if (i < badWaves - 1)
+            {
+                wait = waitTimeBetweenWaves;
+                while (wait > 0)
+                {
+                    if (onWaveCountdown != null)
+                    {
+                        onWaveCountdown(wait);
+                    }
+                    wait -= Time.deltaTime;
+                    yield return null;
+                }
+            }
+        }
+        if (onWaveCountdown != null)
+        {
+            onWaveCountdown(0f);
         }
     }
 }

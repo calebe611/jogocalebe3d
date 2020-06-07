@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -37.03, y: 25.2}
+  m_AnchoredPosition: {x: -48.8, y: 27.717}
   m_SizeDelta: {x: 49.9, y: 50.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157510313
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   - {fileID: 523427476}
   badPrefabs: {fileID: 5843632445611671103, guid: 96c93791d75d80840b4c08af780f7bbc,
     type: 3}
-  badWaves: 4
+  badWaves: 3
   monsterPerWave: 2
   waitTimeFirstWave: 5
   waitTimeBetweenWaves: 4
